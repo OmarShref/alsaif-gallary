@@ -1,17 +1,18 @@
 import styles from "./NavigationBar.module.css";
-import { NavLink } from "react-router-dom";
+import useLanguageStore from "../../stores/languageStore";
 import { useEffect } from "react";
-// import { language } from "../../App";
+import { NavLink } from "react-router-dom";
 
 const NavigationBar = () => {
+  const language = useLanguageStore((state) => state.language);
   useEffect(() => {
     // for refresh indicator movement correct
-    [...document.getElementsByClassName(`${styles.nav_link}`)].map(
+    [...document.getElementsByClassName(`${styles.nav_link}`)].forEach(
       (link, i) => {
         if (link.classList.contains(`${styles.active_link}`)) {
           document.getElementById(
             `${styles.active_indicator}`
-          ).style.left = `calc(${"ar" === "ar" ? -i : i}*100%)`;
+          ).style.left = `calc(${language === "ar" ? -i : i}*100%)`;
           return;
         }
       }
@@ -23,23 +24,34 @@ const NavigationBar = () => {
     const activeIndicator = document.getElementById(
       `${styles.active_indicator}`
     );
+    // correct current place
+    [...document.getElementsByClassName(`${styles.nav_link}`)].forEach(
+      (link, i) => {
+        if (link.classList.contains(`${styles.active_link}`)) {
+          document.getElementById(
+            `${styles.active_indicator}`
+          ).style.left = `calc(${language === "ar" ? -i : i}*100%)`;
+          return;
+        }
+      }
+    );
     // remove previous listener
-    [...document.getElementsByClassName(`${styles.nav_link}`)].map(
+    [...document.getElementsByClassName(`${styles.nav_link}`)].forEach(
       (link, i) => {
         link.removeEventListener("click", () => defineIndicatorMovement(i));
       }
     );
     // define span movement
     const defineIndicatorMovement = (i) => {
-      activeIndicator.style.left = `calc(${"ar" === "ar" ? -i : i}*100%)`;
+      activeIndicator.style.left = `calc(${language === "ar" ? -i : i}*100%)`;
     };
     // set span moving according to every link
-    [...document.getElementsByClassName(`${styles.nav_link}`)].map(
+    [...document.getElementsByClassName(`${styles.nav_link}`)].forEach(
       (link, i) => {
         link.addEventListener("click", () => defineIndicatorMovement(i));
       }
     );
-  }, []);
+  }, [language]);
 
   return (
     <div className={styles.container}>

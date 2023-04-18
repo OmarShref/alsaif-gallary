@@ -1,5 +1,6 @@
 import styles from "./App.module.css";
-import { useState, useEffect, lazy } from "react";
+import { useEffect, lazy } from "react";
+import useLanguageStore from "./stores/languageStore";
 import { Navigate, Route, Routes } from "react-router-dom";
 import MainPage from "./components/main-page/MainPage";
 const Home = lazy(() => import("./components/home/Home"));
@@ -9,7 +10,7 @@ const Offers = lazy(() => import("./components/offers/Offers"));
 const Account = lazy(() => import("./components/account/Account"));
 
 function App() {
-  const [language, setLanguage] = useState("ar");
+  const language = useLanguageStore((state) => state.language);
   // change layout direction according to language selected
   useEffect(() => {
     if (language === "en") {
