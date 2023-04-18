@@ -41,7 +41,7 @@
   color: var(--color-dark-gray);
 }
 .search_box input::placeholder {
-  text-align: end;
+  text-align: var(--placeholder-direction);
   color: var(--color-medium-gray);
 }
 .search_box input:focus-visible ~ .search_icon {

@@ -1,6 +1,22 @@
 import styles from "./Header.module.css";
+import useLanguageStore from "../../stores/languageStore";
+import { useEffect } from "react";
 
 const Header = () => {
+  const language = useLanguageStore((state) => state.language);
+  useEffect(() => {
+    if (language === "ar") {
+      document.documentElement.style.setProperty(
+        "--placeholder-direction",
+        "end"
+      );
+    } else if (language === "en") {
+      document.documentElement.style.setProperty(
+        "--placeholder-direction",
+        "start"
+      );
+    }
+  }, [language]);
   return (
     <>
       <div className={styles.container}>
@@ -39,7 +55,17 @@ const Header = () => {
         </svg>
 
         <div className={styles.search_box}>
-          <input type="text" dir="auto" placeholder="وش اللي في خاطرك" />
+          <input
+            type="text"
+            dir="auto"
+            placeholder={`${
+              language === "ar"
+                ? "وش اللي في خاطرك"
+                : language === "en"
+                ? "What are you looking for?"
+                : "وش اللي في خاطرك"
+            }`}
+          />
           {/* search icon  */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
