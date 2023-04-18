@@ -22,6 +22,10 @@ function App() {
   }, [language]);
   return (
     <>
+      {/* <head>
+        <meta name="discription" content="Home Page" />
+        <title>Home Page</title>
+      </head> */}
       <div className={styles.App}>
         <Routes>
           <Route path="/" element={<MainPage />}>
