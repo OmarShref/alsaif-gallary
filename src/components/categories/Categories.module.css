@@ -6,7 +6,7 @@
 .contents {
   width: 100%;
   display: grid;
-  grid-template-columns: 90px 1fr;
+  grid-template-columns: 100px 1fr;
 }
 .side_menu {
   display: grid;
@@ -29,7 +29,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   text-decoration: none;
   color: var(--color-dark-gray);
@@ -40,9 +40,9 @@
 .side_menu_link img {
   height: 43px;
   position: relative;
-  filter: drop-shadow(-69px 0px 0px var(--color-medium-gray));
-  -webkit-filter: drop-shadow(-69px 0px 0px var(--color-medium-gray));
-  left: 69px;
+  filter: drop-shadow(-74px 0px 0px var(--color-medium-gray));
+  -webkit-filter: drop-shadow(-74px 0px 0px var(--color-medium-gray));
+  left: 74px;
 }
 .side_menu_link p {
   line-height: 10px;
@@ -54,6 +54,6 @@
   font-weight: bold;
 }
 .active_side_menu_link img {
-  filter: drop-shadow(-69px 0px 0px var(--color-accent));
-  -webkit-filter: drop-shadow(-69px 0px 0px var(--color-accent));
+  filter: drop-shadow(-74px 0px 0px var(--color-accent));
+  -webkit-filter: drop-shadow(-74px 0px 0px var(--color-accent));
 }
