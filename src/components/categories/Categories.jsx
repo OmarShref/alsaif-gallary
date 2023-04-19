@@ -62,7 +62,7 @@ const Categories = () => {
                     : `${styles.side_menu_link}`
                 }
               >
-                <img src={`${item.icon}?width=64`} alt="category icon" />
+                <img src={`${item.icon}?width=128`} alt="category icon" />
                 <p>{item.name}</p>
               </NavLink>
             </div>
