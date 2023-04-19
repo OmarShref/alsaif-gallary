@@ -20,6 +20,7 @@ const NavigationBar = () => {
   }, []);
 
   useEffect(() => {
+    // to change indicator movement with the language change
     // get the moving span
     const activeIndicator = document.getElementById(
       `${styles.active_indicator}`
@@ -52,7 +53,7 @@ const NavigationBar = () => {
       }
     );
   }, [language]);
-  console.log("nav rerender");
+
   return (
     <div className={styles.container}>
       {/* helper divs for indicator ui & movement  */}

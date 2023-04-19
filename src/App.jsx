@@ -1,6 +1,7 @@
 import styles from "./App.module.css";
 import { useEffect, lazy } from "react";
 import useLanguageStore from "./stores/languageStore";
+import { Client, Provider, cacheExchange, fetchExchange } from "urql";
 import { Navigate, Route, Routes } from "react-router-dom";
 import MainPage from "./components/main-page/MainPage";
 const Home = lazy(() => import("./components/home/Home"));
@@ -8,6 +9,11 @@ const Categories = lazy(() => import("./components/categories/Categories"));
 const Cart = lazy(() => import("./components/cart/Cart"));
 const Offers = lazy(() => import("./components/offers/Offers"));
 const Account = lazy(() => import("./components/account/Account"));
+
+const client = new Client({
+  url: "https://v2-api.alsaifgallery.com/graphql",
+  exchanges: [cacheExchange, fetchExchange],
+});
 
 function App() {
   const language = useLanguageStore((state) => state.language);
@@ -28,16 +34,18 @@ function App() {
         <title>Home Page</title>
       </head> */}
       <div className={styles.App}>
-        <Routes>
-          <Route path="/" element={<MainPage />}>
-            <Route path="/" element={<Navigate to="/home" />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/categories" element={<Categories />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/offers" element={<Offers />} />
-            <Route path="/account" element={<Account />} />
-          </Route>
-        </Routes>
+        <Provider value={client}>
+          <Routes>
+            <Route path="/" element={<MainPage />}>
+              <Route path="/" element={<Navigate to="/home" />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/categories" element={<Categories />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/offers" element={<Offers />} />
+              <Route path="/account" element={<Account />} />
+            </Route>
+          </Routes>
+        </Provider>
       </div>
     </>
   );

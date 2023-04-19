@@ -11,17 +11,21 @@ const MainPage = () => {
         <Header />
         <Suspense
           fallback={
-            <h3
+            <div
               style={{
                 position: "fixed",
-                inset: "0",
-                display: "grid",
-                placeItems: "center",
-                color: "#be1e2d",
+                inset: "0px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
-              Loading...
-            </h3>
+              <img
+                src="/src/assets/loading.gif"
+                alt="loading gif"
+                width="120"
+              />
+            </div>
           }
         >
           <Outlet />
