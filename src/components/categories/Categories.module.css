@@ -1,12 +1,12 @@
 .container {
   flex-grow: 1;
   overflow: scroll;
-  padding-bottom: 95px;
+  padding-bottom: 100px;
 }
 .contents {
   width: 100%;
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 95px 1fr;
 }
 .side_menu {
   display: grid;
@@ -35,7 +35,7 @@
   color: var(--color-dark-gray);
   font-size: 10px;
   text-align: center;
-  padding: 0px 8px;
+  padding: 0px 6px;
 }
 .side_menu_link img {
   height: 43px;
