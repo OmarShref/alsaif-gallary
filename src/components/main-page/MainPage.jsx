@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Header from "../header/Header";
 import NavigationBar from "../navigation-bar/NavigationBar";
 import { Suspense } from "react";
+import loadingGif from "../../assets/loading.gif";
 
 const MainPage = () => {
   return (
@@ -20,11 +21,7 @@ const MainPage = () => {
                 alignItems: "center",
               }}
             >
-              <img
-                src="/src/assets/loading.gif"
-                alt="loading gif"
-                width="120"
-              />
+              <img src={loadingGif} alt="loading gif" width="120" />
             </div>
           }
         >
