@@ -1,6 +1,7 @@
 import styles from "./Categories.module.css";
 import { gql, useQuery } from "urql";
 import loadingGif from "../../assets/loading.gif";
+import { NavLink } from "react-router-dom";
 
 const categoriesMenuQuery = gql`
   query {
@@ -48,12 +49,26 @@ const Categories = () => {
 
   return (
     <div className={styles.container}>
-      {data.agMegaMenuTree.items.map((item) => (
-        <div key={item.id}>
-          <img src={`${item.icon}?width=48`} alt="category icon" />
-          <p>{item.name}</p>
+      <div className={styles.contents}>
+        <div className={styles.side_menu}>
+          {data.agMegaMenuTree.items.map((item) => (
+            <div key={item.id} className={styles.grid_row}>
+              <NavLink
+                to={`#${item.id}`}
+                end={true}
+                className={({ isActive }) =>
+                  isActive
+                    ? `${styles.side_menu_link} `
+                    : `${styles.side_menu_link}`
+                }
+              >
+                <img src={`${item.icon}?width=48`} alt="category icon" />
+                <p>{item.name}</p>
+              </NavLink>
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 };
