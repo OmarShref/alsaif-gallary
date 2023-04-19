@@ -40,8 +40,8 @@
 .side_menu_link img {
   height: 43px;
   position: relative;
-  filter: drop-shadow(-69px 0px 0px var(--color-dark-gray));
-  -webkit-filter: drop-shadow(-69px 0px 0px var(--color-dark-gray));
+  filter: drop-shadow(-69px 0px 0px var(--color-medium-gray));
+  -webkit-filter: drop-shadow(-69px 0px 0px var(--color-medium-gray));
   left: 69px;
 }
 .side_menu_link p {
