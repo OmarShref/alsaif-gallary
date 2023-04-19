@@ -35,8 +35,9 @@ html {
   display: none;
 }
 :root {
-  --color-accent: #be1e2d;
-  --color-light-gray: #f5f5f5;
+  --color-accent: #bd202d;
+  --color-light-gray: #f9f9f9;
+  --color-offlight-gray: #ededed;
   --color-medium-gray: #939090;
   --color-dark-gray: #646464;
 }

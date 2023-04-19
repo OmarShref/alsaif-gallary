@@ -39,7 +39,9 @@ function App() {
             <Route path="/" element={<MainPage />}>
               <Route path="/" element={<Navigate to="/home" />} />
               <Route path="/home" element={<Home />} />
-              <Route path="/categories" element={<Categories />} />
+              <Route path="/categories" element={<Categories />}>
+                <Route path="*" element={<p>DUMMY</p>} />
+              </Route>
               <Route path="/cart" element={<Cart />} />
               <Route path="/offers" element={<Offers />} />
               <Route path="/account" element={<Account />} />
