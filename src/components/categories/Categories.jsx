@@ -1,5 +1,6 @@
 import styles from "./Categories.module.css";
 import { gql, useQuery } from "urql";
+import loadingGif from "../../assets/loading.gif";
 
 const categoriesMenuQuery = gql`
   query {
@@ -29,7 +30,20 @@ const categoriesMenuQuery = gql`
 const Categories = () => {
   const [result, reexcuteQuery] = useQuery({ query: categoriesMenuQuery });
   const { data, fetching, error } = result;
-  if (fetching) return <p>Loading...</p>;
+  if (fetching)
+    return (
+      <div
+        style={{
+          position: "fixed",
+          inset: "0px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <img src={loadingGif} alt="loading gif" width="120" />
+      </div>
+    );
   if (error) return <p>Oh no ..... {error.message}</p>;
 
   return (
