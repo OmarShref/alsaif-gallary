@@ -6,7 +6,7 @@
 .contents {
   width: 100%;
   display: grid;
-  grid-template-columns: 95px 1fr;
+  grid-template-columns: 93px 1fr;
 }
 .side_menu {
   display: grid;
