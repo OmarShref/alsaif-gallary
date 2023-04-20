@@ -70,7 +70,7 @@ const NavigationBar = () => {
       {/* home link  */}
       <div className={styles.grid_col}>
         <NavLink
-          to="/home"
+          to="home"
           className={({ isActive }) =>
             isActive
               ? `${styles.nav_link} ${styles.active_link}`
@@ -104,7 +104,7 @@ const NavigationBar = () => {
       {/* categories link  */}
       <div className={styles.grid_col}>
         <NavLink
-          to="/categories"
+          to="categories"
           className={({ isActive }) =>
             isActive
               ? `${styles.nav_link} ${styles.active_link}`
@@ -138,7 +138,7 @@ const NavigationBar = () => {
       {/* shopping cart link  */}
       <div className={styles.grid_col}>
         <NavLink
-          to="/cart"
+          to="cart"
           className={({ isActive }) =>
             isActive
               ? `${styles.nav_link} ${styles.active_link}`
@@ -172,7 +172,7 @@ const NavigationBar = () => {
       {/* offes link  */}
       <div className={styles.grid_col}>
         <NavLink
-          to="/offers"
+          to="offers"
           className={({ isActive }) =>
             isActive
               ? `${styles.nav_link} ${styles.active_link}`
@@ -211,7 +211,7 @@ const NavigationBar = () => {
       {/* account link  */}
       <div className={styles.grid_col}>
         <NavLink
-          to="/account"
+          to="account"
           className={({ isActive }) =>
             isActive
               ? `${styles.nav_link} ${styles.active_link}`
