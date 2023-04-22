@@ -6,6 +6,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import MainPage from "./components/main-page/MainPage";
 const Home = lazy(() => import("./components/home/Home"));
 const Categories = lazy(() => import("./components/categories/Categories"));
+import ItemChildren from "./components/categories/item-children/ItemChildren";
 const Cart = lazy(() => import("./components/cart/Cart"));
 const Offers = lazy(() => import("./components/offers/Offers"));
 const Account = lazy(() => import("./components/account/Account"));
@@ -40,7 +41,7 @@ function App() {
               <Route path="/" element={<Navigate to="/home" />} />
               <Route path="/home" element={<Home />} />
               <Route path="/categories" element={<Categories />}>
-                <Route path="*" element={<p>DUMMY</p>} />
+                <Route path="*" element={<ItemChildren />} />
               </Route>
               <Route path="/cart" element={<Cart />} />
               <Route path="/offers" element={<Offers />} />

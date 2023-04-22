@@ -5,6 +5,7 @@
 }
 .contents {
   width: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: 96px 1fr;
 }
@@ -12,12 +13,12 @@
   display: grid;
   grid-auto-flow: row;
   background-color: var(--color-light-gray);
+  overflow: scroll;
 }
 .grid_row {
   width: 100%;
   aspect-ratio: 1/1;
   position: relative;
-  overflow: hidden;
   border-top: 1px solid var(--color-offlight-gray);
 }
 .side_menu_link {

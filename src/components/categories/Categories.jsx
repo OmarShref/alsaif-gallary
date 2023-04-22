@@ -1,4 +1,5 @@
 import styles from "./Categories.module.css";
+import { useState } from "react";
 import { gql, useQuery } from "urql";
 import loadingGif from "../../assets/loading.gif";
 import { NavLink, Outlet } from "react-router-dom";
@@ -29,6 +30,7 @@ const categoriesMenuQuery = gql`
 `;
 
 const Categories = () => {
+  const [itemChildren, setItemChildren] = useState([{ icon: "", name: "" }]);
   const [result, reexcuteQuery] = useQuery({ query: categoriesMenuQuery });
   const { data, fetching, error } = result;
   if (fetching)
@@ -54,13 +56,14 @@ const Categories = () => {
           {data.agMegaMenuTree.items.map((item) => (
             <div key={item.id} className={styles.grid_row}>
               <NavLink
-                to={`${item.id}`}
+                to={`.${item.url}`.replace(".html", "")}
                 end={true}
                 className={({ isActive }) =>
                   isActive
                     ? `${styles.side_menu_link} ${styles.active_side_menu_link}`
                     : `${styles.side_menu_link}`
                 }
+                onClick={() => setItemChildren(item.children)}
               >
                 <img src={`${item.icon}?width=128`} alt="category icon" />
                 <p>{item.name}</p>
@@ -68,7 +71,7 @@ const Categories = () => {
             </div>
           ))}
         </div>
-        <Outlet />
+        <Outlet context={itemChildren} />
       </div>
     </div>
   );
