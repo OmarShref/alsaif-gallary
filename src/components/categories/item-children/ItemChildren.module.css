@@ -20,7 +20,7 @@
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  color: var(--color-dark-gay);
+  color: var(--color-medium-gay);
   font-size: 11px;
   text-align: center;
   font-weight: bold;
@@ -32,4 +32,5 @@
   line-height: 12px;
   height: 26px;
   overflow: hidden;
+  padding: 0px 5px;
 }
