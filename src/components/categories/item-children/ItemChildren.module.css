@@ -23,6 +23,7 @@
   color: var(--color-dark-gay);
   font-size: 11px;
   text-align: center;
+  font-weight: bold;
 }
 .category_item_link img {
   width: 60px;
