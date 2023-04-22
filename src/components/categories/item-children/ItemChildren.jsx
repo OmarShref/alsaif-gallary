@@ -7,7 +7,11 @@ const ItemChildren = () => {
     <div className={styles.item_children}>
       {itemChildren.map((child) => (
         <div>
-          <img src={child.icon + "?width=64"} alt={child.name} />
+          <img
+            src={child.icon + "?width=86"}
+            alt={child.name}
+            style={{ width: "50px" }}
+          />
           <p>{child.name}</p>
         </div>
       ))}
