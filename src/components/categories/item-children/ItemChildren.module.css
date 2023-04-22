@@ -16,12 +16,16 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  gap: 10px;
   text-decoration: none;
   color: var(--color-dark-gay);
   font-size: 11px;
   text-align: center;
+}
+.category_item_link img {
+  width: 60px;
 }
 .category_item_link p {
   line-height: 11px;

@@ -8,11 +8,7 @@ const ItemChildren = () => {
       {itemChildren.map((child) => (
         <div className={styles.item_child}>
           <NavLink to="#" className={styles.category_item_link}>
-            <img
-              src={child.icon + "?width=86"}
-              alt={child.name}
-              style={{ width: "50px" }}
-            />
+            <img src={child.icon + "?width=86"} alt={child.name} />
             <p>{child.name}</p>
           </NavLink>
         </div>
