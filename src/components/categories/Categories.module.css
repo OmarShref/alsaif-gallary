@@ -15,7 +15,7 @@
   grid-auto-rows: min-content;
   overflow: scroll;
   overscroll-behavior: contain;
-  padding-bottom: 25px;
+  scroll-padding-bottom: 25px;
 }
 .grid_row {
   width: 100%;
