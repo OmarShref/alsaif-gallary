@@ -4,7 +4,7 @@ import { useOutletContext } from "react-router-dom";
 const ItemChildren = () => {
   const itemChildren = useOutletContext();
   return (
-    <div className={styles.container}>
+    <div className={styles.item_children}>
       {itemChildren.map((child) => (
         <div>
           <img src={child.icon + "?width=64"} alt={child.name} />
