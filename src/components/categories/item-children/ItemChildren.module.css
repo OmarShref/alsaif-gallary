@@ -1,5 +1,4 @@
 .item_children {
   overflow: scroll;
-  overscroll-behavior: contain;
   scroll-padding-bottom: 25px;
 }
