@@ -30,7 +30,9 @@ const categoriesMenuQuery = gql`
 `;
 
 const Categories = () => {
-  const [itemChildren, setItemChildren] = useState([{ icon: "", name: "" }]);
+  const [itemChildren, setItemChildren] = useState([
+    { icon: "", name: "", id: "123" },
+  ]);
   const [result, reexcuteQuery] = useQuery({ query: categoriesMenuQuery });
   const { data, fetching, error } = result;
   if (fetching)

@@ -27,6 +27,10 @@
 }
 .category_item_link img {
   width: 60px;
+  height: 60px;
+}
+.image_loading_placeholder {
+  display: block;
 }
 .category_item_link p {
   line-height: 12px;
