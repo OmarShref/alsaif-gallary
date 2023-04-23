@@ -3,14 +3,21 @@
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: min-content;
   row-gap: 20px;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   scroll-padding-bottom: 25px;
   padding: 10px 10px 25px;
 }
 .banner {
-  display: inline;
+  position: relative;
   grid-column: 1 / 4;
   width: 100%;
+}
+.banner img {
+  width: 100%;
+}
+.banner img:first-child {
+  height: 100%;
 }
 .item_child {
   width: 100%;

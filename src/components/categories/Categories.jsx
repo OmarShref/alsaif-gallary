@@ -34,9 +34,7 @@ const categoriesMenuQuery = gql`
 `;
 
 const Categories = () => {
-  const [itemChildren, setItemChildren] = useState([
-    { icon: "", name: "", id: "123" },
-  ]);
+  const [itemChildren, setItemChildren] = useState();
   const [bannerUrl, setBannerUrl] = useState("");
   const [categoryName, setCategoryName] = useState("");
 
@@ -78,11 +76,7 @@ const Categories = () => {
                   setCategoryName(item.name);
                 }}
               >
-                <img
-                  src={`${item.icon}?width=128`}
-                  alt={item.name + " icon"}
-                  loading="lazy"
-                />
+                <img src={`${item.icon}?width=128`} alt={item.name + " icon"} />
                 <p>{item.name}</p>
               </NavLink>
             </div>
