@@ -33,10 +33,10 @@
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  color: var(--color-medium-gay);
+  color: var(--color-dark-gray);
   font-size: 11px;
   text-align: center;
-  font-weight: bold;
+  font-weight: 600;
 }
 .category_item_link img {
   width: 60px;
