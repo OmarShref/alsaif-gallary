@@ -3,6 +3,7 @@ import { useState } from "react";
 import { gql, useQuery } from "urql";
 import loadingGif from "../../assets/loading.gif";
 import { NavLink, Outlet } from "react-router-dom";
+import getUrl from "../../helper-functions/getting-banner";
 
 const categoriesMenuQuery = gql`
   query {
@@ -15,6 +16,9 @@ const categoriesMenuQuery = gql`
         label
         label_text_color
         label_background_color
+        page_builder {
+          json_encoded
+        }
         children {
           id
           name
@@ -33,6 +37,9 @@ const Categories = () => {
   const [itemChildren, setItemChildren] = useState([
     { icon: "", name: "", id: "123" },
   ]);
+  const [bannerUrl, setBannerUrl] = useState("");
+  const [categoryName, setCategoryName] = useState("");
+
   const [result, reexcuteQuery] = useQuery({ query: categoriesMenuQuery });
   const { data, fetching, error } = result;
   if (fetching)
@@ -65,15 +72,23 @@ const Categories = () => {
                     ? `${styles.side_menu_link} ${styles.active_side_menu_link}`
                     : `${styles.side_menu_link}`
                 }
-                onClick={() => setItemChildren(item.children)}
+                onClick={() => {
+                  setItemChildren(item.children);
+                  setBannerUrl(getUrl(item.page_builder.json_encoded));
+                  setCategoryName(item.name);
+                }}
               >
-                <img src={`${item.icon}?width=128`} alt="category icon" />
+                <img
+                  src={`${item.icon}?width=128`}
+                  alt={item.name + " icon"}
+                  loading="lazy"
+                />
                 <p>{item.name}</p>
               </NavLink>
             </div>
           ))}
         </div>
-        <Outlet context={itemChildren} />
+        <Outlet context={[itemChildren, bannerUrl, categoryName]} />
       </div>
     </div>
   );

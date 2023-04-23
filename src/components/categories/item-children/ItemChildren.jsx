@@ -3,9 +3,15 @@ import { useOutletContext, NavLink } from "react-router-dom";
 import imageLoadingGif from "../../../assets/imageLoading.gif";
 
 const ItemChildren = () => {
-  const itemChildren = useOutletContext();
+  const [itemChildren, bannerUrl, categoryName] = useOutletContext();
   return (
     <div className={styles.item_children}>
+      <img
+        src={bannerUrl + "?width=300"}
+        alt={categoryName + " banner"}
+        className={styles.banner}
+        loading="lazy"
+      />
       {itemChildren.map((child) => (
         <div className={styles.item_child} key={child.id}>
           <NavLink to="#" className={styles.category_item_link}>

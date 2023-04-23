@@ -7,6 +7,11 @@
   scroll-padding-bottom: 25px;
   padding: 10px 10px 25px;
 }
+.banner {
+  display: inline;
+  grid-column: 1 / 4;
+  width: 100%;
+}
 .item_child {
   width: 100%;
   position: relative;
