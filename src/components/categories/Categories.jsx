@@ -34,6 +34,7 @@ const categoriesMenuQuery = gql`
 `;
 
 const Categories = () => {
+  // states to pass to the item children component throw the outlet context
   const [itemChildren, setItemChildren] = useState();
   const [bannerUrl, setBannerUrl] = useState("");
   const [categoryName, setCategoryName] = useState("");
@@ -41,8 +42,9 @@ const Categories = () => {
   const [result, reexcuteQuery] = useQuery({ query: categoriesMenuQuery });
   const { data, fetching, error } = result;
 
+  // to get same page contents after refreshing browser
   useEffect(() => {
-    console.log("entered use effect");
+    // to prevent doing any thing before data fetching
     if (data) {
       const createdSideMenuLinks = [
         ...document.getElementsByClassName(styles.side_menu_link),
@@ -51,10 +53,10 @@ const Categories = () => {
         e.classList.contains(styles.active_side_menu_link)
       );
       if (activeSideMenuLink) {
-        console.log("found and clicked");
+        // trigger active link click
         activeSideMenuLink.click();
       } else {
-        console.log("selected and clicked");
+        // setting then trigger active link click
         createdSideMenuLinks[0].click();
       }
     }
