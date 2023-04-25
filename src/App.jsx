@@ -38,7 +38,10 @@ function App() {
         <Provider value={client}>
           <Routes>
             <Route path="/" element={<MainPage />}>
-              <Route path="/" element={<Navigate to="/home" />} />
+              <Route
+                path="/"
+                element={<Navigate to="/home" replace={true} />}
+              />
               <Route path="/home" element={<Home />} />
               <Route path="/categories" element={<Categories />}>
                 <Route path="*" element={<ItemChildren />} />

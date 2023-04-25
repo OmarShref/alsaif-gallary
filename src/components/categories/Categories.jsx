@@ -1,5 +1,5 @@
 import styles from "./Categories.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { gql, useQuery } from "urql";
 import loadingGif from "../../assets/loading.gif";
 import { NavLink, Outlet } from "react-router-dom";
@@ -40,6 +40,26 @@ const Categories = () => {
 
   const [result, reexcuteQuery] = useQuery({ query: categoriesMenuQuery });
   const { data, fetching, error } = result;
+
+  useEffect(() => {
+    console.log("entered use effect");
+    if (data) {
+      const createdSideMenuLinks = [
+        ...document.getElementsByClassName(styles.side_menu_link),
+      ];
+      const activeSideMenuLink = createdSideMenuLinks.find((e) =>
+        e.classList.contains(styles.active_side_menu_link)
+      );
+      if (activeSideMenuLink) {
+        console.log("found and clicked");
+        activeSideMenuLink.click();
+      } else {
+        console.log("selected and clicked");
+        createdSideMenuLinks[0].click();
+      }
+    }
+  }, [data]);
+
   if (fetching)
     return (
       <div
