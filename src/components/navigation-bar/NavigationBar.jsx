@@ -71,6 +71,7 @@ const NavigationBar = () => {
       <div className={styles.grid_col}>
         <NavLink
           to="home"
+          replace={true}
           className={({ isActive }) =>
             isActive
               ? `${styles.nav_link} ${styles.active_link}`
@@ -105,6 +106,7 @@ const NavigationBar = () => {
       <div className={styles.grid_col}>
         <NavLink
           to="categories"
+          replace={true}
           className={({ isActive }) =>
             isActive
               ? `${styles.nav_link} ${styles.active_link}`
@@ -139,6 +141,7 @@ const NavigationBar = () => {
       <div className={styles.grid_col}>
         <NavLink
           to="cart"
+          replace={true}
           className={({ isActive }) =>
             isActive
               ? `${styles.nav_link} ${styles.active_link}`
@@ -173,6 +176,7 @@ const NavigationBar = () => {
       <div className={styles.grid_col}>
         <NavLink
           to="offers"
+          replace={true}
           className={({ isActive }) =>
             isActive
               ? `${styles.nav_link} ${styles.active_link}`
@@ -212,6 +216,7 @@ const NavigationBar = () => {
       <div className={styles.grid_col}>
         <NavLink
           to="account"
+          replace={true}
           className={({ isActive }) =>
             isActive
               ? `${styles.nav_link} ${styles.active_link}`

@@ -84,6 +84,7 @@ const Categories = () => {
             <div key={item.id} className={styles.grid_row}>
               <NavLink
                 to={`.${item.url}`.replace(".html", "")}
+                replace={true}
                 end={true}
                 className={({ isActive }) =>
                   isActive
