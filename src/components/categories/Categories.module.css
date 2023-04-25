@@ -40,9 +40,13 @@
 .side_menu_link img {
   height: 43px;
   position: relative;
-  filter: drop-shadow(90px 0px 0px var(--color-medium-gray));
-  -webkit-filter: drop-shadow(90px 0px 0px var(--color-medium-gray));
-  right: 90px;
+  filter: drop-shadow(-90px 0px 0px var(--color-medium-gray));
+  -webkit-filter: drop-shadow(-90px 0px 0px var(--color-medium-gray));
+  transform: translateX(90px);
+  -webkit-transform: translateX(90px);
+  -moz-transform: translateX(90px);
+  -ms-transform: translateX(90px);
+  -o-transform: translateX(90px);
 }
 .side_menu_link p {
   line-height: 10px;
@@ -54,6 +58,6 @@
   font-weight: bold;
 }
 .active_side_menu_link img {
-  filter: drop-shadow(90px 0px 0px var(--color-accent));
-  -webkit-filter: drop-shadow(90px 0px 0px var(--color-accent));
+  filter: drop-shadow(-90px 0px 0px var(--color-accent));
+  -webkit-filter: drop-shadow(-90px 0px 0px var(--color-accent));
 }
