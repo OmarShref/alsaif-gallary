@@ -2,8 +2,9 @@ import styles from "./Categories.module.css";
 import { useState, useEffect } from "react";
 import { gql, useQuery } from "urql";
 import loadingGif from "../../assets/loading.gif";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import getUrl from "../../helper-functions/getting-banner";
+import useLastCategoryStore from "../../stores/lastCategoryStore";
 
 const categoriesMenuQuery = gql`
   query {
@@ -38,11 +39,18 @@ const Categories = () => {
   const [itemChildren, setItemChildren] = useState();
   const [bannerUrl, setBannerUrl] = useState("");
   const [categoryName, setCategoryName] = useState("");
+  const lastCategory = useLastCategoryStore((state) => state.lastCategory);
+  const setLastCategory = useLastCategoryStore(
+    (state) => state.setLastCategory
+  );
+  const index = useLastCategoryStore((state) => state.index);
+  const setIndex = useLastCategoryStore((state) => state.setIndex);
+  const Navigate = useNavigate();
 
   const [result, reexcuteQuery] = useQuery({ query: categoriesMenuQuery });
   const { data, fetching, error } = result;
 
-  // to get same page contents after refreshing browser
+  // to get same page contents after refreshing browser or changing url
   useEffect(() => {
     // to prevent doing any thing before data fetching
     if (data) {
@@ -55,6 +63,10 @@ const Categories = () => {
       if (activeSideMenuLink) {
         // trigger active link click
         activeSideMenuLink.click();
+      } else if (lastCategory) {
+        // getting last category when going out then back to categories again
+        Navigate(lastCategory);
+        createdSideMenuLinks[index].click();
       } else {
         // setting then trigger active link click
         createdSideMenuLinks[0].click();
@@ -82,7 +94,7 @@ const Categories = () => {
     <div className={styles.container}>
       <div className={styles.contents}>
         <div className={styles.side_menu}>
-          {data.agMegaMenuTree.items.map((item) => (
+          {data.agMegaMenuTree.items.map((item, i) => (
             <div key={item.id} className={styles.grid_row}>
               <NavLink
                 to={`.${item.url}`.replace(".html", "")}
@@ -97,6 +109,8 @@ const Categories = () => {
                   setItemChildren(item.children);
                   setBannerUrl(getUrl(item.page_builder.json_encoded));
                   setCategoryName(item.name);
+                  setLastCategory(`.${item.url}`.replace(".html", ""));
+                  setIndex(i);
                 }}
               >
                 <img src={`${item.icon}?width=128`} alt={item.name + " icon"} />
