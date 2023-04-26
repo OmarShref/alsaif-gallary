@@ -12,7 +12,6 @@ const ItemChildren = () => {
           <img
             src={bannerUrl + "?width=300"}
             alt={categoryName + " banner"}
-            loading="lazy"
             width="300"
           />
         </div>
