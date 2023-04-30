@@ -14,6 +14,7 @@ const Account = lazy(() => import("./components/account/Account"));
 const client = new Client({
   url: "https://v2-api.alsaifgallery.com/graphql",
   exchanges: [cacheExchange, fetchExchange],
+  preferGetMethod: true,
 });
 
 function App() {
